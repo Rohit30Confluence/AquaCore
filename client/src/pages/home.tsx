@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Droplets, Shield, Thermometer, ArrowRight, Menu, X } from "lucide-react";
+import { Droplets, Shield, Thermometer, ArrowRight, Menu, X, Star } from "lucide-react";
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -94,9 +95,11 @@ export default function Home() {
                 Experience the perfect balance of aesthetics and functionality. Aura redefines how you carry water, keeping it cold for 24 hours in a silhouette that turns heads.
               </motion.p>
               <motion.div variants={fadeInUp} className="flex items-center gap-4">
-                <Button size="lg" className="rounded-full px-8 h-12 text-base shadow-lg hover:shadow-primary/20 transition-all duration-300">
-                  Shop Collection
-                </Button>
+                <Link href="/customize">
+                  <Button size="lg" className="rounded-full px-8 h-12 text-base shadow-lg hover:shadow-primary/20 transition-all duration-300">
+                    Personalize Your 1L
+                  </Button>
+                </Link>
                 <Button variant="ghost" size="lg" className="rounded-full h-12 gap-2 group">
                   Watch Film <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Button>
