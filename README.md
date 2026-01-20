@@ -1,4 +1,4 @@
-# Aura Hydration - Sustainable Luxury Landing Page
+# AQUA CORE ~
 
 A premium, minimalist landing page for a sustainable water bottle brand.
 
