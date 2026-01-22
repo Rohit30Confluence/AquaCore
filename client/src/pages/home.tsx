@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Droplets, Shield, Thermometer, ArrowRight, Menu, X, Star } from "lucide-react";
+import { Droplets, Shield, Thermometer, ArrowRight, Menu, X, Star, Utensils, Coffee, Briefcase } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 // Import assets
 import bottleImage from "@assets/generated_images/minimalist_water_bottle_product_shot.png";
 import logoImage from "@assets/generated_images/geometric_water_drop_logo.png";
+import restaurantImage from "@assets/generated_images/luxury_restaurant_branding.png";
+import cafeImage from "@assets/generated_images/cafe_lifestyle_branding.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -33,18 +35,20 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={logoImage} alt="Aura Logo" className="w-8 h-8 object-contain opacity-90" />
-            <span className="font-serif text-2xl font-semibold tracking-tight">Aura</span>
+            <img src={logoImage} alt="Aqua Core Logo" className="w-8 h-8 object-contain opacity-90" />
+            <span className="font-serif text-2xl font-semibold tracking-tight">Aqua Core</span>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">Features</a>
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">Our Story</a>
-            <a href="#shop" className="text-sm font-medium hover:text-primary transition-colors">Shop</a>
-            <Button size="sm" className="rounded-full px-6">
-              Pre-order
-            </Button>
+            <a href="#solutions" className="text-sm font-medium hover:text-primary transition-colors">Hospitality Solutions</a>
+            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">The Bottle</a>
+            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">Sustainability</a>
+            <Link href="/customize">
+              <Button size="sm" className="rounded-full px-6">
+                Design Your Brand
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -55,27 +59,11 @@ export default function Home() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border p-4"
-          >
-            <div className="flex flex-col gap-4">
-              <a href="#features" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Features</a>
-              <a href="#about" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Our Story</a>
-              <a href="#shop" className="text-lg font-medium" onClick={() => setIsMenuOpen(false)}>Shop</a>
-              <Button className="w-full rounded-full">Pre-order Now</Button>
-            </div>
-          </motion.div>
-        )}
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-[radial-gradient(circle_at_top_right,var(--color-primary)_0%,transparent_40%)]">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -84,167 +72,163 @@ export default function Home() {
               variants={staggerContainer}
               className="z-10"
             >
-              <motion.span variants={fadeInUp} className="inline-block text-primary font-medium tracking-wider text-sm mb-4 uppercase">
-                The Future of Hydration
+              <motion.span variants={fadeInUp} className="inline-block text-primary font-medium tracking-widest text-sm mb-4 uppercase">
+                Premium Branding for Elite Hospitality
               </motion.span>
-              <motion.h1 variants={fadeInUp} className="font-serif text-5xl lg:text-7xl font-medium leading-[1.1] mb-6">
-                Pure Design.<br />
-                <span className="text-muted-foreground">Pure Water.</span>
+              <motion.h1 variants={fadeInUp} className="font-serif text-5xl lg:text-8xl font-medium leading-[1] mb-6">
+                Your Brand.<br />
+                <span className="text-muted-foreground italic">Their Experience.</span>
               </motion.h1>
-              <motion.p variants={fadeInUp} className="text-lg text-muted-foreground max-w-md mb-8 leading-relaxed">
-                Experience the perfect balance of aesthetics and functionality. Aura redefines how you carry water, keeping it cold for 24 hours in a silhouette that turns heads.
+              <motion.p variants={fadeInUp} className="text-xl text-muted-foreground max-w-md mb-8 leading-relaxed font-light">
+                Elevate your restaurant or cafe with custom-branded 1-liter Aqua Core bottles. Sustainable luxury that serves your guests and your identity.
               </motion.p>
-              <motion.div variants={fadeInUp} className="flex items-center gap-4">
+              <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
                 <Link href="/customize">
-                  <Button size="lg" className="rounded-full px-8 h-12 text-base shadow-lg hover:shadow-primary/20 transition-all duration-300">
-                    Personalize Your 1L
+                  <Button size="lg" className="rounded-full px-10 h-14 text-lg shadow-2xl shadow-primary/30 transition-all duration-300 hover:-translate-y-1">
+                    Start Branding
                   </Button>
                 </Link>
-                <Button variant="ghost" size="lg" className="rounded-full h-12 gap-2 group">
-                  Watch Film <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <Button variant="outline" size="lg" className="rounded-full h-14 px-8 border-primary/20 hover:bg-primary/5 transition-all">
+                  Request Samples
                 </Button>
               </motion.div>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative lg:h-[600px] flex items-center justify-center"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative lg:h-[700px] flex items-center justify-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl scale-75" />
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-[120px] scale-75 animate-pulse" />
               <img 
                 src={bottleImage} 
-                alt="Aura Bottle" 
-                className="relative z-10 w-full max-w-md h-auto object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                alt="Aqua Core Branded Bottle" 
+                className="relative z-10 w-full max-w-lg h-auto object-cover rounded-[2rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.3)] hover:rotate-2 transition-transform duration-700"
               />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section id="features" className="py-24 bg-muted/30">
+      {/* Solutions Section */}
+      <section id="solutions" className="py-32 bg-background relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-serif text-3xl lg:text-4xl mb-4">Engineered for Perfection</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Every detail of the Aura bottle is meticulously crafted to enhance your daily hydration ritual.
-            </p>
-          </motion.div>
+          <div className="flex flex-col lg:flex-row items-end justify-between mb-20 gap-8">
+            <div className="max-w-2xl">
+              <h2 className="font-serif text-4xl lg:text-6xl mb-6">Tailored for the industry.</h2>
+              <p className="text-muted-foreground text-lg font-light">From Michelin-star dining rooms to bustling artisan cafes, Aqua Core is the silent ambassador of your commitment to quality and style.</p>
+            </div>
+            <div className="flex gap-4">
+               <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center"><ArrowRight className="rotate-180 opacity-30" /></div>
+               <div className="w-12 h-12 rounded-full border border-primary text-primary flex items-center justify-center"><ArrowRight /></div>
+            </div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="group relative rounded-[2.5rem] overflow-hidden aspect-[16/10] bg-muted"
+            >
+              <img src={restaurantImage} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Restaurant Branding" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-12">
+                <Utensils className="text-white w-8 h-8 mb-4" />
+                <h3 className="text-white font-serif text-3xl mb-2">Fine Dining</h3>
+                <p className="text-white/70 max-w-xs">Elevate the table setting with sophisticated 1L carafes that maintain temperature throughout the meal.</p>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="group relative rounded-[2.5rem] overflow-hidden aspect-[16/10] bg-muted"
+            >
+              <img src={cafeImage} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Cafe Branding" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-12">
+                <Coffee className="text-white w-8 h-8 mb-4" />
+                <h3 className="text-white font-serif text-3xl mb-2">Artisan Cafes</h3>
+                <p className="text-white/70 max-w-xs">Offer guests a premium hydration experience that matches the quality of your craft coffee.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Business Perks Grid */}
+      <section className="py-24 bg-primary/5">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-12">
             {[
               {
-                icon: <Thermometer className="w-6 h-6" />,
-                title: "24h Temperature Lock",
-                description: "Double-walled vacuum insulation keeps your water ice-cold for 24 hours or hot for 12 hours."
+                icon: <Star className="w-6 h-6" />,
+                title: "Logo Laser Etching",
+                description: "Permanent, precision branding that never fades or peels."
               },
               {
-                icon: <Shield className="w-6 h-6" />,
-                title: "Medical Grade Steel",
-                description: "Crafted from 18/8 stainless steel that preserves taste and resists rust. BPA-free and toxin-free."
+                icon: <Briefcase className="w-6 h-6" />,
+                title: "B2B Bulk Pricing",
+                description: "Competitive margins tailored for hospitality and corporate scale."
+              },
+              {
+                icon: <Thermometer className="w-6 h-6" />,
+                title: "Thermal Efficiency",
+                description: "Keeps water at serving temp for hours without condensation."
               },
               {
                 icon: <Droplets className="w-6 h-6" />,
-                title: "Leak-Proof Design",
-                description: "Our precision-engineered cap ensures zero leaks, making it safe for your bag and your tech."
+                title: "Eco-Friendly",
+                description: "Eliminate plastic waste and demonstrate green values."
               }
             ].map((feature, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-              >
-                <Card className="border-none shadow-sm hover:shadow-md transition-shadow duration-300 bg-background h-full">
-                  <CardContent className="p-8 flex flex-col items-center text-center">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
-                      {feature.icon}
-                    </div>
-                    <h3 className="font-serif text-xl font-medium mb-3">{feature.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <div key={idx} className="flex flex-col gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-primary">
+                  {feature.icon}
+                </div>
+                <h4 className="font-serif text-lg font-medium">{feature.title}</h4>
+                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Large Image / Lifestyle Section */}
-      <section className="py-24 overflow-hidden">
+      {/* Footer - simplified/refined */}
+      <footer className="bg-background border-t border-border py-20">
         <div className="container mx-auto px-6">
-          <div className="relative rounded-3xl overflow-hidden bg-primary/5 min-h-[500px] flex items-center">
-            <div className="absolute inset-0 bg-neutral-900/10 z-0 mix-blend-multiply" />
-            <div className="grid lg:grid-cols-2 w-full relative z-10">
-              <div className="p-12 lg:p-20 flex flex-col justify-center">
-                <h2 className="font-serif text-4xl lg:text-5xl mb-6 text-foreground">
-                  Sustainable by design.
-                </h2>
-                <p className="text-muted-foreground text-lg mb-8 max-w-md">
-                  Join the movement against single-use plastic. One Aura bottle replaces thousands of plastic bottles over its lifetime.
-                </p>
-                <Button variant="outline" size="lg" className="self-start rounded-full border-primary text-primary hover:bg-primary hover:text-white">
-                  Learn About Our Mission
-                </Button>
-              </div>
-              <div className="relative h-64 lg:h-auto">
-                 {/* Decorative abstract elements */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[100px]" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-foreground text-background py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="col-span-1 md:col-span-2">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+            <div>
               <div className="flex items-center gap-2 mb-6">
-                 <img src={logoImage} alt="Aura Logo" className="w-8 h-8 object-contain invert brightness-0" />
-                 <span className="font-serif text-2xl font-bold">Aura</span>
+                 <img src={logoImage} alt="Aqua Core Logo" className="w-10 h-10 object-contain" />
+                 <span className="font-serif text-3xl font-bold">Aqua Core</span>
               </div>
-              <p className="text-gray-400 max-w-sm mb-6">
-                Designing the future of hydration with sustainable materials and timeless aesthetics.
+              <p className="text-muted-foreground max-w-sm">
+                Redefining hospitality through sustainable design and premium branding solutions.
               </p>
             </div>
-            
-            <div>
-              <h4 className="font-serif text-lg mb-4">Shop</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">All Bottles</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Accessories</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Gift Sets</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-serif text-lg mb-4">Company</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Sustainability</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
+            <div className="flex gap-16">
+              <div>
+                <h5 className="font-medium mb-4">Solutions</h5>
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li>Restaurants</li>
+                  <li>Hotels</li>
+                  <li>Cafes</li>
+                  <li>Offices</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-medium mb-4">Contact</h5>
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li>Sales Inquiries</li>
+                  <li>Support</li>
+                  <li>Press</li>
+                </ul>
+              </div>
             </div>
           </div>
-          
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>&copy; 2024 Aura Hydration. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
+          <div className="pt-8 border-t border-border flex justify-between items-center text-xs text-muted-foreground tracking-widest uppercase">
+            <span>© 2024 Aqua Core Hospitality</span>
+            <div className="flex gap-8">
+              <a href="#">Instagram</a>
+              <a href="#">LinkedIn</a>
             </div>
           </div>
         </div>
