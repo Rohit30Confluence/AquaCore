@@ -1,5 +1,5 @@
 # AQUA CORE ~
-
+For Premium Water Bottles 
 A premium, minimalist landing page for a sustainable water bottle brand.
 
 ## Features
